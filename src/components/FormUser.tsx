@@ -5,19 +5,35 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { FaUser, FaKey } from "react-icons/fa6";
 
-type FormRegisterData = {
+type FormUserData = {
     username: string;
     password: string;
 };
 
-export default function FormRegister() {
+export interface FormUserProps {
+    submitBtnTxt?: string;
+    action?: "create" | "login";
+}
+
+export default function FormUser({
+    action = "create",
+    submitBtnTxt = "Criar conta",
+}: FormUserProps) {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormRegisterData>();
-    const onSubmit = handleSubmit((data) => console.log(data));
-    // firstName and lastName will have correct type
+    } = useForm<FormUserData>();
+    const onSubmit = handleSubmit((data) => {
+        switch (action) {
+            case "create":
+                console.log(action, data);
+                break;
+            case "login":
+                console.log(action, data);
+                break;
+        }
+    });
 
     return (
         <form onSubmit={onSubmit} className="w-80 card bg-base-200">
@@ -74,7 +90,7 @@ export default function FormRegister() {
                     />
                 </div>
                 <button className="btn btn-primary" type="submit">
-                    Criar conta
+                    {submitBtnTxt}
                 </button>
             </div>
         </form>
