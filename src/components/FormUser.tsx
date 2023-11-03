@@ -48,7 +48,7 @@ export default function FormUser({
                         htmlFor="username"
                         className={clsx(
                             "btn join-item",
-                            errors.username ? "btn-error" : "btn-ghost"
+                            errors.username ? "btn-error" : "btn-neutral"
                         )}
                     >
                         <FaUser />
@@ -73,7 +73,7 @@ export default function FormUser({
                         htmlFor="password"
                         className={clsx(
                             "btn join-item",
-                            errors.password ? "btn-error" : "btn-ghost"
+                            errors.password ? "btn-error" : "btn-neutral"
                         )}
                     >
                         <FaKey />

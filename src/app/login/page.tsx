@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: `Registro | ${siteConfig.title}`,
+    title: `Login | ${siteConfig.title}`,
     description: "Pagina para criar contas.",
 };
 
