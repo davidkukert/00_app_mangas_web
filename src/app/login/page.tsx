@@ -1,14 +1,17 @@
+"use client";
 import FormUser from "@App/components/FormUser";
 import siteConfig from "@App/config/site";
-import { Metadata } from "next";
+import { useAuth } from "@App/contexts/auth/authContext";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-    title: `Login | ${siteConfig.title}`,
-    description: "Pagina para criar contas.",
-};
+import { redirect } from "next/navigation";
 
 export default function LoginPage() {
+    const authContext = useAuth();
+
+    if (authContext.token && authContext.user) {
+        return redirect("/");
+    }
+
     return (
         <main>
             <header className="mb-4">

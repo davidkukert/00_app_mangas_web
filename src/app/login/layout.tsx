@@ -1,3 +1,11 @@
+import siteConfig from "@App/config/site";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: `Login | ${siteConfig.title}`,
+    description: "Pagina para criar contas.",
+};
+
 export default function RootLayout({
     children,
 }: {
